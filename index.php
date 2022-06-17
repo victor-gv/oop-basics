@@ -63,3 +63,68 @@ class pointGuard extends basketballPlayer {
 }
 
 $player2 = new pointGuard("Pepe", "44", "man");
+
+
+// -------------------------- Abstract class -------------------------------------
+abstract class coach {
+    public $name;
+    public $experience; 
+
+    public function __construct($name, $experience)
+    {
+        $this->name = $name;
+        $this->experience = $experience;
+    }
+
+    //methods
+    public function encourage(){
+        echo "Come on guys, you are doing great!";
+    }
+
+    public function scold(){
+        echo "@#@#~€¬#@|@!!!!";
+    }
+
+    abstract public function makeDecision();
+}
+
+class coach1 extends coach {
+    public $speciality;
+
+    public function __construct($name, $experience, $speciality){
+        parent::__construct ($name, $experience);
+        $this->speciality = $speciality;
+    }
+
+    public function makeDecision()
+    {
+        echo "Time out please!";
+    }
+}
+
+$laso = new coach1("Pablo Laso", "24 years of experience", "Defense");
+
+
+
+// -------------------------- Interface -------------------------------------
+
+interface athlete {
+    public function run();
+    public function jump();
+    public function pass();
+}
+
+class footballPlayer implements athlete {
+    public function run(){
+        echo "I am running!";
+    }
+
+    public function pass(){
+        echo "I am passing the ball!";
+    }
+
+    public function jump(){
+        echo "I am jumping!";
+    }
+}   
+
