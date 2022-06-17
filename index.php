@@ -2,7 +2,8 @@
 
 // General class
 
-class basketballPlayer {
+class basketballPlayer
+{
     //Properties
     public $name;
     public $age;
@@ -10,7 +11,8 @@ class basketballPlayer {
     public $active = "Yes";
 
     //construct
-    public function __construct($name, $age, $gender){
+    public function __construct($name, $age, $gender)
+    {
         $this->name = $name;
         $this->age = $age;
         $this->gender = $gender;
@@ -23,52 +25,57 @@ class basketballPlayer {
     }
 
     //Methods
-    public function introduction(){
+    public function introduction()
+    {
         echo "My name is " . $this->name . ", I am a " . $this->gender . " and I am " . $this->age . " years old.";
     }
 
-    public function jump(){
+    public function jump()
+    {
         echo "I am jumping!";
     }
 
-    public function shoot(){
+    public function shoot()
+    {
         echo "I am shooting the ball!";
     }
 
-    public function defense() {
+    public function defense()
+    {
         echo "I am defending!";
     }
 }
 
 $player1 = new basketballPlayer("Victor", "27", "man");
 
-
-
 // -------------------------- class that inherits the base class. -------------------------------------
 
-class pointGuard extends basketballPlayer {
+class pointGuard extends basketballPlayer
+{
     //adding 1 property and 1 method
     public static $ability = "Passing";
 
-    public function pass(){
+    public function pass()
+    {
         echo "I am pasing the ball!";
     }
 
     //overriding 1 property and 1 method
     public $active = "No";
 
-    public function jump(){
+    public function jump()
+    {
         echo "I am trying to jump, but I am retired.";
     }
 }
 
 $player2 = new pointGuard("Pepe", "44", "man");
 
-
 // -------------------------- Abstract class -------------------------------------
-abstract class coach {
+abstract class coach
+{
     public $name;
-    public $experience; 
+    public $experience;
 
     public function __construct($name, $experience)
     {
@@ -77,22 +84,26 @@ abstract class coach {
     }
 
     //methods
-    public function encourage(){
+    public function encourage()
+    {
         echo "Come on guys, you are doing great!";
     }
 
-    public function scold(){
+    public function scold()
+    {
         echo "@#@#~€¬#@|@!!!!";
     }
 
     abstract public function makeDecision();
 }
 
-class coach1 extends coach {
+class coach1 extends coach
+{
     public $speciality;
 
-    public function __construct($name, $experience, $speciality){
-        parent::__construct ($name, $experience);
+    public function __construct($name, $experience, $speciality)
+    {
+        parent::__construct($name, $experience);
         $this->speciality = $speciality;
     }
 
@@ -104,27 +115,29 @@ class coach1 extends coach {
 
 $laso = new coach1("Pablo Laso", "24 years of experience", "Defense");
 
-
-
 // -------------------------- Interface -------------------------------------
 
-interface athlete {
+interface athlete
+{
     public function run();
     public function jump();
     public function pass();
 }
 
-class footballPlayer implements athlete {
-    public function run(){
+class footballPlayer implements athlete
+{
+    public function run()
+    {
         echo "I am running!";
     }
 
-    public function pass(){
+    public function pass()
+    {
         echo "I am passing the ball!";
     }
 
-    public function jump(){
+    public function jump()
+    {
         echo "I am jumping!";
     }
-}   
-
+}
